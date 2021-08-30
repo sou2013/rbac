@@ -1,3 +1,7 @@
+https://connect2id.com/products/nimbus-oauth-openid-connect-sdk/examples/oauth/token-introspection
+https://developers.onelogin.com/api-docs/1/oauth20-tokens/generate-tokens-2
+https://www.tutorialspoint.com/spring_security/spring_security_with_oauth2.htm
+
 https://dev.to/techschoolguru/how-to-create-sign-ssl-tls-certificates-2aai
 
 pswd to all to privat key = test
