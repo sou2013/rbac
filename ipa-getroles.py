@@ -1,17 +1,20 @@
 import requests
-url="https://HOST/ipa/json"
+import json
+
+url="https://ipa.rhel7.local/ipa/json"
 headers = {'Connection': 'keep-alive',
-'referer':'https://HOST/ipa',
+'referer':'https://ipa.rhel7.local/ipa',
 'Content-Type':'application/json',
 'Accept':'application/json'
 
 }
 
 data= {
-    'subject': 'Alice-subject',
-    'addbbcode18': '%23444444'
-    }
-
-cookies = {'ipa_session':'MagBearerToken=GH6LpfsQeZrM2v3k80p6RiLQccqsXba7Kt59s6o8lyOr3/uaT12wsvJ0ZYoL/D7r3AIBfZWNS0YeSzlzrClRS0kkiF3+XiZIJlcBvpxK6ePrY+junoWAgu3NDXvMtXDWf3ji9MYGbDId/tLbdRltxvO5LDCOfDsAPAXf64YdWK5h40gkV5IuGHp76FDfS5jjepRDv/8XwzINgBEhzdQeTe5CZLyS/YH2j/jdj0O5SqtHBHSTSdqNl874vrdxoSXCMj+DLho7qhQEeUsPPq7eeg=='
+"jsonrpc": "2.0", "method":"user_show","params":[["tester1"],{"all": "true","version": "2.215"}],"id":0
 }
-print requests.get(url, data=data, headers=headers, cookies=cookies).content
+
+# cookie is from browser after login using user/pswd on web GUI
+
+cookies = {'ipa_session':'MagBearerToken=UnLlaG6tGBt1zkimE%2bENc39QQ5MzsGQhUDDkDQD6e69UCx%2bSPpx5NboOiNF7V0IzuGrMH1pttKukbmS8kA%2fP6lIFHMjCu3GmjdTlE$
+}
+print requests.post(url, data=json.dumps(data), headers=headers, cookies=cookies).content
